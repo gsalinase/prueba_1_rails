@@ -1,23 +1,35 @@
 <div class="container">
-  <h1>Mis pendientes:</h1>
-  <div class="row">
+  <h1 class="mb-3 mt-5">Mis pendientes</h1>
+  <%= link_to "Crear nueva tarea", todos_path %>
+  <div class="row mt-3">
     <div class="col-sm-6">
       <h3>Completados</h3>
-      <% @todo.each do |todo| %>
-        <% if todo.completed === true %>
-          <p><%= todo.description  %></p>
-        <% end %>
-      <% end %>
+      <table class="table">
+        <tbody>
+          <tr>
+            <% @todo.each do |todo| %>
+              <% if todo.completed === true %>
+              <td><%= todo.description  %></td>
+              <% end %>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <div class="col-sm-6">
       <h3>Pendientes</h3>
-      <% @todo.each do |todo| %>
-        <% if todo.completed === false %>
-          <p><%= todo.description  %></p>
-        <% end %>
-      <% end %>
+      <table class="table">
+        <tbody>
+          <tr>
+            <% @todo.each do |todo| %>
+              <% if todo.completed === false %>
+              <td><%= todo.description  %></td>
+              <% end %>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
   </div>
-    <%= link_to "Crear nueva tarea", todos_path %>
 </div>
