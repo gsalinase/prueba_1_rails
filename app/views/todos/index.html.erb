@@ -1,0 +1,19 @@
+<div class="container">
+  <h1 class="mt-5">Todas las tareas:</h1>
+  <div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">¿Quiéres crear una nueva tarea?</h4>
+    <%= link_to 'Presiona aquí', todos_new_path, class:'alert-link' %>
+  </div>
+  <% @todo.each do |todo| %>
+  <div class="card mb-3">
+    <div class="card-body">
+      <h3 class="card-title d-inline"><%= todo.description %></h3>
+      <%= link_to "Completar", todo_complete_path(todo), class:'badge badge-dark ml-3' %>
+      <h6 class="card-subtitle mb-2 mt-2 text-muted">Estado: <%= todo.completed %></h6>
+      <%= link_to "Ver", todo_path(todo), target: '_blank', class: 'btn btn-dark'%>
+      <%= link_to "Modificar", todo_edit_path(todo), target: '_blank', class: 'btn btn-light'%>
+      <%= link_to "Eliminar", todo, method: :delete,  class: 'btn btn-outline-danger' %>
+    </div>
+  </div>
+  <% end %>
+</div>
