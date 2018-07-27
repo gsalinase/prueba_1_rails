@@ -6,13 +6,15 @@
       <h3>Completados</h3>
       <table class="table">
         <tbody>
-          <tr>
-            <% @todo.each do |todo| %>
-              <% if todo.completed === true %>
+
+          <% @todo.each do |todo| %>
+            <% if todo.completed === true %>
+            <tr>
               <td><%= todo.description  %></td>
-              <% end %>
+            </tr>
             <% end %>
-          </tr>
+          <% end %>
+
         </tbody>
       </table>
     </div>
@@ -20,13 +22,13 @@
       <h3>Pendientes</h3>
       <table class="table">
         <tbody>
-          <tr>
-            <% @todo.each do |todo| %>
-              <% if todo.completed === false %>
+          <% @todo.each do |todo| %>
+            <% if todo.completed === false %>
+            <tr>
               <td><%= todo.description  %></td>
-              <% end %>
+            </tr>
             <% end %>
-          </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
